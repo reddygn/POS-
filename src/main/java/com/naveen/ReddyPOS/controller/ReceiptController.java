@@ -2,6 +2,7 @@ package com.naveen.ReddyPOS.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,9 +16,9 @@ public class ReceiptController {
 	@Autowired
 	ReceiptService receiptService;
 
-	@GetMapping("/print")
-	public Receipt printReceipt() {
+	@GetMapping("/print/{customerEmail}")
+	public Receipt printReceipt(@PathVariable String customerEmail) {
 
-		return receiptService.printReceipt();
+		return receiptService.printReceipt(customerEmail);
 	}
 }

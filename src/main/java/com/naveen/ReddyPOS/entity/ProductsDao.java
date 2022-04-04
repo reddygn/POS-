@@ -1,7 +1,16 @@
-package com.naveen.ReddyPOS.model;
+package com.naveen.ReddyPOS.entity;
 
-public class Products {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public class ProductsDao {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	private String productName;
 	private double price;
 	private String customerEmail;
@@ -20,6 +29,14 @@ public class Products {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getCustomerEmail() {
