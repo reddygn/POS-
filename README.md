@@ -34,6 +34,6 @@ POST http://localhost:8080/api/order/create
 
 
 
-Request to print a receipt for a given customer with email address
+Request to print a receipt for a given customer with transactionId
 
-GET :: http://localhost:8080/api/receipt/print/nav@gmail.com
+GET :: http://localhost:8080/api/receipt/print/{transactionId}
