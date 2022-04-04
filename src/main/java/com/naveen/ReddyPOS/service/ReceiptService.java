@@ -29,9 +29,7 @@ public class ReceiptService {
 
 		Double subtotalWithTaxAdded = receipt.setTaxAmountOnSubtotal(bg1.doubleValue());
 
-		BigDecimal bg = new BigDecimal(subtotalWithTaxAdded).setScale(2, RoundingMode.HALF_UP);
-
-		receipt.setTotal(totalCalculator(receipt, subtotal, bg.doubleValue()));
+		receipt.setTotal(totalCalculator(receipt, subtotal, subtotalWithTaxAdded));
 
 		return receipt;
 	}
