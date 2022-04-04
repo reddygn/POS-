@@ -14,6 +14,7 @@ public class ProductsDao {
 	private String productName;
 	private double price;
 	private String customerEmail;
+	private String transactionId;
 
 	public String getProductName() {
 		return productName;
@@ -45,6 +46,14 @@ public class ProductsDao {
 
 	public void setCustomerEmail(String customerEmail) {
 		this.customerEmail = customerEmail;
+	}
+
+	public String getTransactionId() {
+		return transactionId;
+	}
+
+	public void setTransactionId(String transactionId) {
+		this.transactionId = transactionId;
 	}
 
 }
