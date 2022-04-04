@@ -1,21 +1,32 @@
 package com.naveen.ReddyPOS.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.naveen.ReddyPOS.entity.ProductsDao;
 import com.naveen.ReddyPOS.model.Products;
+import com.naveen.ReddyPOS.repository.ProductsRepository;
 
 @Service
 public class OrdersService {
 
-	static List<Products> orders = new ArrayList<Products>();
+	@Autowired
+	ProductsRepository productsRepository;
 
 	public List<Products> processOrders(List<Products> products) {
 
-		orders.addAll(products);
+		for (Products products2 : products) {
 
+			ProductsDao pDao = new ProductsDao();
+
+			pDao.setCustomerEmail(products2.getCustomerEmail());
+			pDao.setPrice(products2.getPrice());
+			pDao.setProductName(products2.getProductName());
+
+			productsRepository.save(pDao);
+		}
 		return products;
 	}
 

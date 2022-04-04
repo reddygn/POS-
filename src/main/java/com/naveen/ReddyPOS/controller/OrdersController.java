@@ -19,26 +19,12 @@ import com.naveen.ReddyPOS.service.OrdersService;
 public class OrdersController {
 
 	@Autowired
-	ProductsRepository productsRepository;
-
-	@Autowired
 	OrdersService ordersService;
 
 	@PostMapping("/create")
 	public List<Products> processOrders(@RequestBody List<Products> products) {
 
-		for (Products products2 : products) {
-
-			ProductsDao pDao = new ProductsDao();
-
-			pDao.setCustomerEmail(products2.getCustomerEmail());
-			pDao.setPrice(products2.getPrice());
-			pDao.setProductName(products2.getProductName());
-
-			productsRepository.save(pDao);
-		}
-
-		return products;
+		return ordersService.processOrders(products);
 	}
 
 }
