@@ -16,9 +16,9 @@ public class ReceiptController {
 	@Autowired
 	ReceiptService receiptService;
 
-	@GetMapping("/print/{customerEmail}")
-	public Receipt printReceipt(@PathVariable String customerEmail) {
+	@GetMapping("/print/{transactionId}")
+	public Receipt printReceipt(@PathVariable String transactionId) {
 
-		return receiptService.printReceipt(customerEmail);
+		return receiptService.printReceipt(transactionId);
 	}
 }

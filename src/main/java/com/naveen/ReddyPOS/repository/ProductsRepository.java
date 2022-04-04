@@ -10,4 +10,6 @@ public interface ProductsRepository extends JpaRepository<ProductsDao, Integer> 
 
 	List<ProductsDao> findAllByCustomerEmail(String customerEmail);
 
+	List<ProductsDao> findAllByTransactionId(String transactionId);
+
 }

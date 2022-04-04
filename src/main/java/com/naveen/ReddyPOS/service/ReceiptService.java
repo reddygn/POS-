@@ -21,14 +21,14 @@ public class ReceiptService {
 	@Autowired
 	ProductsRepository productsRepository;
 
-	public Receipt printReceipt(String customerEmail) {
+	public Receipt printReceipt(String transactionId) {
 		Receipt receipt = new Receipt();
 
 		receipt.setStoreAddress(POSConstants.STORE_ADDRESS);
 		receipt.setStorePhone(POSConstants.STORE_PHONE_NUMBER);
 		receipt.setStoreName(POSConstants.STORE_NAME);
 
-		receipt.setProducts(getProducts(customerEmail));
+		receipt.setProducts(getProducts(transactionId));
 
 		Double subtotal = receipt.setSubtotal(getSubtotal(receipt.getProducts()));
 
@@ -58,9 +58,11 @@ public class ReceiptService {
 		return subtotal;
 	}
 
-	public List<Products> getProducts(String customerEmail) {
+	public List<Products> getProducts(String transactionId) {
 
-		List<ProductsDao> ProdsListDao = productsRepository.findAllByCustomerEmail(customerEmail);
+		List<ProductsDao> ProdsListDao = productsRepository.findAllByTransactionId(transactionId);
+		
+		//List<ProductsDao> ProdsListDao = productsRepository.findAllByCustomerEmail(customerEmail);
 
 		List<Products> prodsDtoList = new ArrayList<Products>();
 		for (ProductsDao productsDao : ProdsListDao) {
