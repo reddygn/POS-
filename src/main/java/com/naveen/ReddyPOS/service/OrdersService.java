@@ -16,19 +16,25 @@ public class OrdersService {
 	@Autowired
 	ProductsRepository productsRepository;
 
+	@Autowired
+	EmailService emailService;
+
 	public List<Products> processOrders(List<Products> products) {
+
 		String transactionId = UUID.randomUUID().toString();
 
-		for (Products products2 : products) {
+		for (Products product : products) {
 
 			ProductsDao pDao = new ProductsDao();
 			pDao.setTransactionId(transactionId);
-			pDao.setCustomerEmail(products2.getCustomerEmail());
-			pDao.setPrice(products2.getPrice());
-			pDao.setProductName(products2.getProductName());
+			pDao.setCustomerEmail(product.getCustomerEmail());
+			pDao.setPrice(product.getPrice());
+			pDao.setProductName(product.getProductName());
 
 			productsRepository.save(pDao);
 		}
+
+		emailService.sendEmail(transactionId);
 
 		return products;
 	}

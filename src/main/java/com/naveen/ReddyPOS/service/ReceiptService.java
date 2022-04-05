@@ -42,12 +42,6 @@ public class ReceiptService {
 		return receipt;
 	}
 
-	private Double totalCalculator(Double subtotal, Double subtotalWithTaxAdded) {
-
-		Double total = subtotal + subtotalWithTaxAdded;
-		return total;
-	}
-
 	public Double getSubtotal(List<Products> products) {
 
 		Double subtotal = products.stream().collect(Collectors.summingDouble(Products::getPrice));
@@ -58,13 +52,18 @@ public class ReceiptService {
 		return subtotal;
 	}
 
+	private Double totalCalculator(Double subtotal, Double subtotalWithTaxAdded) {
+
+		Double total = subtotal + subtotalWithTaxAdded;
+		return total;
+	}
+
 	public List<Products> getProducts(String transactionId) {
 
-		List<ProductsDao> ProdsListDao = productsRepository.findAllByTransactionId(transactionId);
-		
-		//List<ProductsDao> ProdsListDao = productsRepository.findAllByCustomerEmail(customerEmail);
-
 		List<Products> prodsDtoList = new ArrayList<Products>();
+
+		List<ProductsDao> ProdsListDao = productsRepository.findAllByTransactionId(transactionId);
+
 		for (ProductsDao productsDao : ProdsListDao) {
 			Products product = new Products();
 
