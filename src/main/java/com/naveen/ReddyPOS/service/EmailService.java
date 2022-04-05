@@ -18,7 +18,7 @@ public class EmailService {
 	public void sendEmail(String transactionId) {
 
 		final String username = "from@gmail.com";
-		final String password = "********";
+		final String password = "**********";
 
 		Properties prop = new Properties();
 		prop.put("mail.smtp.host", "smtp.gmail.com");
@@ -35,9 +35,8 @@ public class EmailService {
 		try {
 
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("naveentest914@gmail.com"));
-			message.setRecipients(Message.RecipientType.TO,
-					InternetAddress.parse("to@gmail.com, to@gmail.com, to@gmail.com"));
+			message.setFrom(new InternetAddress("from@gmail.com"));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("to@gmail.com, to@gmail.com"));
 			message.setSubject("Congratulations!");
 			message.setText("Your order has been placed." + "" + "" + " TransactionId :: " + transactionId
 					+ " Thank you for shopping with us.");

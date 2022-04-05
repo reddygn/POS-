@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.naveen.ReddyPOS.model.Products;
 import com.naveen.ReddyPOS.service.OrdersService;
+import com.naveen.ReddyPOS.util.POSException;
 
 @RestController
 @RequestMapping("api/order")
@@ -19,7 +20,7 @@ public class OrdersController {
 	OrdersService ordersService;
 
 	@PostMapping("/create")
-	public List<Products> processOrders(@RequestBody List<Products> products) {
+	public List<Products> processOrders(@RequestBody List<Products> products) throws POSException {
 
 		return ordersService.processOrders(products);
 	}
