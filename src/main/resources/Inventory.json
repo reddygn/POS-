@@ -1,0 +1,44 @@
+{
+	"products": [
+		{
+			"productName": "Gaming Chair",
+			"price": 133.21,
+			"customerEmail": "naveenrg914@gmail.com"
+		},
+		{
+			"productName": "Computer Table",
+			"price": 190,
+			"customerEmail": "naveenrg914@gmail.com"
+		},
+		{
+			"productName": "Phone Mount",
+			"price": 23.33,
+			"customerEmail": "naveenrg914@gmail.com"
+		},
+		{
+			"productName": "Keyboard",
+			"price": 21.67,
+			"customerEmail": "naveenrg914@gmail.com"
+		},
+		{
+			"productName": "Monitor",
+			"price": 320.28,
+			"customerEmail": "naveenrg914@gmail.com"
+		},
+		{
+			"productName": "TV",
+			"price": 1099.99,
+			"customerEmail": "naveenrg914@gmail.com"
+		},
+		{
+			"productName": "Watch",
+			"price": 210.84,
+			"customerEmail": "naveenrg914@gmail.com"
+		},
+		{
+			"productName": "Backpack",
+			"price": 55.39,
+			"customerEmail": "naveenrg914@gmail.com"
+		}
+	]
+}

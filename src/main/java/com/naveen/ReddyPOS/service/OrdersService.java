@@ -26,6 +26,8 @@ public class OrdersService {
 
 	public List<Products> processOrders(List<Products> products) throws POSException {
 
+		logger.info("Processing Orders");
+
 		String transactionId = UUID.randomUUID().toString();
 
 		for (Products product : products) {
